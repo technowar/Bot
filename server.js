@@ -12,7 +12,11 @@ var user = {
 	'PASS' : 'Skolpad'
 };
 
-var chan = ['#Jahm', '#Jaahm'];
+var chan = [
+	'#skolpad'
+];
+
+var respondTo = '';
 
 var irc = net.connect(server.PORT, server.ADDRESS, function () {
 	console.log('Connecting to ' + server.ADDRESS + ':' + server.PORT);
@@ -35,14 +39,14 @@ var respond = function (stream) {
 
 irc.on('data', function (stream) {
 	var streamString = stream.toString().trim();
+	var streamSplit = streamString.split(' ');
 
 	command.forEach(function (command) {
 		if (streamString.match(command.match)) {
+			respondTo = streamSplit[2];
 			irc.emit(command.emit);
 		}
 	});
-
-	console.log(streamString);
 });
 
 irc.on('connect', function () {
@@ -60,9 +64,7 @@ irc.on('pong', function () {
 });
 
 irc.on('beep', function () {
-	console.log('Sending REPLY');
+	console.log('Sending REPLY to ' + respondTo);
 
-	chan.forEach(function (channel) {
-		respond('PRIVMSG ' + channel + ' :' + 'Boop');
-	});
+	respond('PRIVMSG ' + respondTo + ' :' + 'Boop');
 });
