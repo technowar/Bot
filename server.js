@@ -23,5 +23,6 @@ irc.on('connect', function () {
 		Response.write('NICK ' + Config.NICK);
 		Response.write('USER ' + Config.USER + ' 8 * :' + Config.REAL);
 		Response.write('JOIN ' + Channel.join(','));
+		Response.write('PRIVMSG NickServ :identify ' + Config.PASS);
 	}, 1000);
 });
