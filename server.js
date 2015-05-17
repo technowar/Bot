@@ -14,7 +14,8 @@ irc.setNoDelay();
 
 exports.irc = irc;
 
-var Request = require('./lib/request');
+require('./lib/ping');
+require('./lib/request');
 var Response = require('./lib/response');
 
 irc.on('connect', function () {
