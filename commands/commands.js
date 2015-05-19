@@ -2,5 +2,7 @@
 
 module.exports = {
 	'!beep' : require('./beep'),
-	'!foo' : require('./foo')
+	'!foo' : require('./foo'),
+	'!about' : require('./about'),
+	'!google' : require('./google')
 };
