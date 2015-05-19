@@ -3,7 +3,7 @@
 var Net = require('net');
 
 var Config = require('./utils/config');
-var Channel = require('./utils/channel');
+var Channels = require('./utils/channel');
 
 var irc = Net.connect(Config.PORT, Config.ADDRESS, function () {
 	console.log('Connecting to ' + Config.ADDRESS + ':' + Config.PORT);
@@ -14,16 +14,21 @@ irc.setNoDelay();
 
 exports.irc = irc;
 
-require('./lib/ping');
-require('./lib/request');
 require('./lib/commands');
-var Response = require('./lib/response');
+require('./lib/ping');
+require('./lib/data');
+
+var Write = require('./lib/write');
 
 irc.on('connect', function () {
 	setTimeout(function () {
-		Response.write('NICK ' + Config.NICK);
-		Response.write('USER ' + Config.USER + ' 8 * :' + Config.REAL);
-		Response.write('JOIN ' + Channel.join(','));
-		Response.write('PRIVMSG NickServ :identify ' + Config.PASS);
+		Write('NICK ' + Config.NICK);
+		Write('USER ' + Config.USER + ' 8 * :' + Config.REAL);
+		Write('JOIN ' + Channels.join(','));
+		Write('PRIVMSG NickServ :identify ' + Config.PASS);
+
+		for (var channel in Channels) {
+			Write('PRIVMSG ChanServ :OP ' + Channels[channel] + ' ' + Config.NICK);
+		}
 	}, 1000);
 });

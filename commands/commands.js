@@ -1,11 +1,6 @@
 'use strict';
 
 module.exports = {
-	':!beep' : {
-		'execute' : require('./beep'),
-		'commandName' : '!beep [option]',
-		'commandInfo' : 'Prints `Boop` or `[option]`'
-	},
 	':!foo' : {
 		'execute' : require('./foo'),
 		'commandName' : '!foo',
@@ -16,9 +11,14 @@ module.exports = {
 		'commandName' : '!about',
 		'commandInfo' : 'Print details'
 	},
+	':!beep' : {
+		'execute' : require('./beep'),
+		'commandName' : '!beep [ <option> ]',
+		'commandInfo' : 'Prints `Boop` or `[ <option> ]`'
+	},
 	':!google' : {
 		'execute' : require('./google'),
-		'commandName' : '!google [option]',
-		'commandInfo' : 'Googles [option]'
+		'commandName' : '!google [ <option> ]',
+		'commandInfo' : 'Googles [ <option> ]'
 	}
 };
