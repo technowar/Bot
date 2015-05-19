@@ -16,7 +16,7 @@ exports.irc = irc;
 
 require('./lib/ping');
 require('./lib/request');
-require('./lib/help');
+require('./lib/commands');
 var Response = require('./lib/response');
 
 irc.on('connect', function () {
