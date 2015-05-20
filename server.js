@@ -3,7 +3,6 @@
 var Net = require('net');
 
 var Config = require('./utils/config');
-var Channels = require('./utils/channel');
 
 var irc = Net.connect(Config.PORT, Config.ADDRESS, function () {
 	console.log('Connecting to ' + Config.ADDRESS + ':' + Config.PORT);
@@ -17,9 +16,11 @@ exports.irc = irc;
 require('./lib/ping');
 require('./lib/data');
 
-var Write = require('./lib/write');
-
 irc.on('connect', function () {
+	var Write = require('./lib/write');
+
+	var Channels = require('./utils/channel');
+
 	setTimeout(function () {
 		Write('NICK ' + Config.NICK);
 		Write('USER ' + Config.USER + ' 8 * :' + Config.REAL);

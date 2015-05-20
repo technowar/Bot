@@ -1,6 +1,6 @@
 'use strict';
 
-var commands = {
+module.exports = {
 	':!commands' : {
 		'execute' : require('./lists'),
 		'commandName' : '!commands',
@@ -30,7 +30,11 @@ var commands = {
 		'commandName' : '!google [ <option> ]',
 		'commandInfo' : 'Googles [ <option> ]',
 		'privmsg' : true
+	},
+	':!topic' : {
+		'execute' : require('./topic'),
+		'commandName' : '!topic',
+		'commandInfo' : 'Prints `Test`',
+		'privmsg' : false
 	}
 };
-
-exports.commands = commands;
