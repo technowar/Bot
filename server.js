@@ -14,7 +14,6 @@ irc.setNoDelay();
 
 exports.irc = irc;
 
-require('./lib/commands');
 require('./lib/ping');
 require('./lib/data');
 
