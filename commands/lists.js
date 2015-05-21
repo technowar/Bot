@@ -1,12 +1,13 @@
 'use strict';
 
-module.exports = function () {
+var Directory = process.cwd();
+
+module.exports = function (respondToChannel, optionsToCommand) {
+	var Write = require(Directory + '/lib/write');
+
 	var Commands = require('./commands');
-	var commandName = [];
 
 	for (var command in Commands) {
-		commandName.push(Commands[command].commandName);
+		Write('PRIVMSG ' + respondToChannel + ' :' + Commands[command].commandName + ' - ' + Commands[command].commandInfo);
 	}
-
-	return 'Commands are: ' + commandName.join(', ');
 };

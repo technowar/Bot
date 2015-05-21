@@ -1,9 +1,13 @@
 'use strict';
 
-module.exports = function (options) {
-	if (options) {
-		return options;
+var Directory = process.cwd();
+
+module.exports = function (respondToChannel, optionsToCommand) {
+	var Write = require(Directory + '/lib/write');
+
+	if (!optionsToCommand) {
+		return Write('PRIVMSG ' + respondToChannel + ' :' + 'Boop');
 	}
 
-	return 'Boop';
+	Write('PRIVMSG ' + respondToChannel + ' :' + optionsToCommand);
 };

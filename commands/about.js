@@ -1,5 +1,9 @@
 'use strict';
 
-module.exports = function () {
-	return 'Skolpad Bot Beta Release'
+var Directory = process.cwd();
+
+module.exports = function (respondToChannel, optionsToCommand) {
+	var Write = require(Directory + '/lib/write');
+
+	Write('PRIVMSG ' + respondToChannel + ' :' + 'Skolpad Bot Beta Release');
 };
