@@ -6,8 +6,8 @@ module.exports = function (respondToChannel, optionsToCommand) {
 	var Write = require(Directory + '/lib/write');
 
 	if (!optionsToCommand) {
-		return Write('PRIVMSG ' + respondToChannel + ' :' + 'Boop');
+		return Write('PRIVMSG ' + respondToChannel + ' :' + 'Try again. Use `!voice [ <user> ]` instead.');
 	}
 
-	Write('PRIVMSG ' + respondToChannel + ' :' + optionsToCommand);
+	Write('MODE ' + respondToChannel + ' +v ' + optionsToCommand);
 };

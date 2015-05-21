@@ -4,22 +4,12 @@ module.exports = {
 	':!commands' : {
 		'execute' : require('./lists'),
 		'commandName' : '!commands',
-		'commandInfo' : 'Prints `Commands`'
-	},
-	':!foo' : {
-		'execute' : require('./foo'),
-		'commandName' : '!foo',
-		'commandInfo' : 'Prints `Bar`'
+		'commandInfo' : 'List all the available commands'
 	},
 	':!about' : {
 		'execute' : require('./about'),
 		'commandName' : '!about',
-		'commandInfo' : 'Print details'
-	},
-	':!beep' : {
-		'execute' : require('./beep'),
-		'commandName' : '!beep [ <option> ]',
-		'commandInfo' : 'Prints `Boop` or `[ <option> ]`'
+		'commandInfo' : 'Print bot details'
 	},
 	':!google' : {
 		'execute' : require('./google'),
@@ -30,5 +20,15 @@ module.exports = {
 		'execute' : require('./topic'),
 		'commandName' : '!topic [ <option> ]',
 		'commandInfo' : 'Change topic to [ <option> ]'
+	},
+	':!voice' : {
+		'execute' : require('./voice'),
+		'commandName' : '!voice [ <user> ]',
+		'commandInfo' : 'Set +v to [ <user> ]'
+	},
+	':!kick' : {
+		'execute' : require('./kick'),
+		'commandName' : '!kick [ <user> ]',
+		'commandInfo' : 'Kick [ <user> ] [ <message> ]'
 	}
 };
