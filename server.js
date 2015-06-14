@@ -14,21 +14,9 @@ irc.setNoDelay();
 exports.irc = irc;
 
 irc.on('connect', function () {
-	var Write = require('./lib/write');
+	require('./utils/dependencies')();
+});
 
-	var Channels = require('./utils/channel');
-
-	require('./lib/ping');
-	require('./lib/data');
-
-	setTimeout(function () {
-		Write('NICK ' + Config.NICK);
-		Write('USER ' + Config.USER + ' 8 * :' + Config.REAL);
-		Write('JOIN ' + Channels.join(','));
-		Write('PRIVMSG NickServ :identify ' + Config.PASS);
-
-		for (var channel in Channels) {
-			Write('PRIVMSG ChanServ :OP ' + Channels[channel] + ' ' + Config.NICK);
-		}
-	}, 1000);
+irc.on('close', function () {
+	require('./utils/dependencies')();
 });
