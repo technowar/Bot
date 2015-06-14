@@ -13,13 +13,13 @@ irc.setNoDelay();
 
 exports.irc = irc;
 
-require('./lib/ping');
-require('./lib/data');
-
 irc.on('connect', function () {
 	var Write = require('./lib/write');
 
 	var Channels = require('./utils/channel');
+
+	require('./lib/ping');
+	require('./lib/data');
 
 	setTimeout(function () {
 		Write('NICK ' + Config.NICK);
