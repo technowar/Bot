@@ -16,6 +16,11 @@ module.exports = {
 		'commandName' : '!google [ <option> ]',
 		'commandInfo' : 'Googles [ <option> ]'
 	},
+	':!seen' : {
+		'execute' : require('./seen'),
+		'commandName' : '!seen [ <user> ]',
+		'commandInfo' : 'Look for [ <user> ]'
+	},
 	':!topic' : {
 		'execute' : require('./topic'),
 		'commandName' : '!topic [ <option> ]',
