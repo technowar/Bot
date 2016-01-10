@@ -1,0 +1,27 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "A simple IRC Bot that runs on Node.js.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technowar/Bot.git"
+  },
+	"engines": {
+		"node": "0.12.9"
+	},
+  "keywords": [
+    "Bot",
+		"Freenode"
+  ],
+  "author": "Johmel Rey Pintor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/technowar/Bot/issues"
+  },
+  "homepage": "https://github.com/technowar/Bot#readme"
+}
