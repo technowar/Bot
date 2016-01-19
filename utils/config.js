@@ -6,5 +6,5 @@ module.exports = {
 	'NICK' : 'Skolpad',
 	'USER' : 'Skolpad',
 	'REAL' : 'Skolpad Bot v2.1.0',
-	'PASS' : ''
+	'PASS' : process.env.PWD
 };
