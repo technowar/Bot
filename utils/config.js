@@ -5,6 +5,5 @@ module.exports = {
 	'ADDRESS' : 'irc.freenode.net',
 	'NICK' : 'Skolpad',
 	'USER' : 'Skolpad',
-	'REAL' : 'Skolpad Bot v2.1.0',
-	'PASS' : process.env.PWD
+	'REAL' : 'Skolpad Bot v2.1.0'
 };
